@@ -1,0 +1,44 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem 2rem;
+    justify-content: space-between;
+}
+
+.first-nav>img {
+    height: 3rem;
+    width: 12rem;
+}
+
+.nav-links {
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.li-link {
+    font-size: 1.5rem;
+}
+
+.li-link-a {
+    text-decoration: none;
+    color: var(--alt-text-color);
+}
+
+.nav-connect {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.i-link-connect {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.li-link-a:hover {
+    color: var(--primary-color);
+}
