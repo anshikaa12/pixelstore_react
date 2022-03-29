@@ -11,7 +11,7 @@ html {
     --accent-color: #af7a6d;
     --bg-color: #E6EAED;
     --alt-text-color: #36383C;
-    --complement-btn-text-color: white;
+    --complement-btn-text-color: #ffffff;
     --secondary-color: #1B1B1B;
     --standard-color: #7FD2E6;
     --success-color: #4E9A51;
@@ -60,13 +60,13 @@ ul {
 
     html {
         font-size: 37.5%;
-        /*6px*/
+
     }
 }
 
 @media only screen and (max-width:830px) {
     html {
         font-size: 43.75%;
-        /*7px*/
+
     }
 }
