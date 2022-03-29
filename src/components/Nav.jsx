@@ -1,21 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 
 function Nav() {
     return (
         <div>
+
             <div class="nav">
                 <div class="first-nav">
                     <img src="https://res.cloudinary.com/de5it79dw/image/upload/v1648491301/Pixelion_2_-PhotoRoom_q7mfmo.png" alt="" />
                 </div>
                 <div class="mid-nav flex-row">
                     <ul class="nav-links">
-                        <a class="li-link-a" href="/index.html">
-                            <li class="li-link">Home</li>
-                        </a>
-                        <a class="li-link-a" href="/css/pages/products/product.html">
-                            <li class="li-link">Shop Now</li>
-                        </a>
+                        <Link className="li-link-a" to="/"> <li class="li-link">Home</li></Link>
+                        <Link className="li-link-a" to="/product"> <li class="li-link">Shop Now</li></Link>
                     </ul>
                 </div>
                 <div class="last-nav flex-row">
