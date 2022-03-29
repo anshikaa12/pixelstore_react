@@ -3,12 +3,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Card() {
-
     const [cardData, setCardData] = useState([]);
     useEffect(() => {
         axios.get('/api/products').then((data) => {
-            console.log("YO");
-            console.log(data.data.products);
             setCardData(data.data.products);
         }).catch((err) => { console.error(err) });
     }, []);
