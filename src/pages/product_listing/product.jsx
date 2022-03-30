@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, Footer, Card } from "../../components/index";
+import { Nav, Footer, Card } from "../../components";
 
 function Product() {
     return (

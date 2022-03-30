@@ -1,5 +1,5 @@
 import React from 'react'
-import { Nav, Footer } from "../../components/index";
+import { Nav, Footer } from "../../components";
 
 
 
