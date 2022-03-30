@@ -1,21 +1,13 @@
 import React from 'react';
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useProduct } from "../services/product_api";
 
 function Card() {
-    const [cardData, setCardData] = useState([]);
-    useEffect(() => {
-        axios.get('/api/products').then((data) => {
-            setCardData(data.data.products);
-        }).catch((err) => { console.error(err) });
-    }, []);
-
+    const { cardData } = useProduct();
     return (
-
         cardData && cardData.map(item => {
             return (
                 <div className="e-basic-card">
-                    <img src={item.image} className="e-card-img" />
+                    <img src={item.image} className="e-card-img" alt="Loading" />
                     <div className="card-body">
                         <h4 className="card-title">{item.name}</h4>
                         <span className="e-card-subtext">{item.subtext}
@@ -32,9 +24,6 @@ function Card() {
                 </div>
             )
         })
-
-
-
     )
 }
 

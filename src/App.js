@@ -1,8 +1,6 @@
 import "./App.css";
-import Nav from "./components/Nav";
-import Home from "./pages/home/Home";
 import { Route, Routes } from "react-router-dom";
-import Product from "./pages/product_listing/product";
+import {Home,Product} from "./pages/index"
 
 function App() {
   return (
@@ -11,7 +9,6 @@ function App() {
         <Route path="/" element={<Home/> }/>
         <Route path="/product" element={<Product/> }/>
       </Routes>
-      
     </div>
   );
 }

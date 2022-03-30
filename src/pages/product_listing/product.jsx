@@ -1,7 +1,5 @@
 import React from 'react'
-import Card from '../../components/Card'
-import Footer from '../../components/Footer'
-import Nav from '../../components/Nav'
+import { Nav, Footer, Card } from "../../components/index";
 
 function Product() {
     return (
@@ -11,11 +9,9 @@ function Product() {
                 <div className="product-card-container column-3-grid">
                     <Card />
                 </div>
-
             </div>
             <Footer />
         </div>
-
     )
 }
 
