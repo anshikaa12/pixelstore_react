@@ -1,7 +1,9 @@
 import React from 'react';
+import { useCart } from '../services/context/cartcontext';
 import { useProduct } from "../services/product_api";
 
 function Card() {
+    const { state, dispatch } = useCart();
     const { cardData } = useProduct();
     return (
         cardData && cardData.map(item => {
@@ -17,7 +19,7 @@ function Card() {
                         </span>
 
                         <div className="card-footer">
-                            <button className="mid-btn btn-primary">Add to cart</button>
+                            <button className="mid-btn btn-primary" onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}>Add to cart</button>
                             <div className="connect-part"><i className="far fa-heart card-icon"></i></div>
                         </div>
                     </div>

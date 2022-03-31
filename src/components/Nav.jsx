@@ -30,12 +30,12 @@ function Nav() {
                                 <p className="h6-text i-link-nav-name">Wishlist</p>
                             </li>
                         </a>
-                        <a href="./css/pages/cart/cart.html" className="nav-connect-a li-link-a">
+                        <Link to="/cart" className="nav-connect-a li-link-a">
                             <li className="connect-link flex-col-center h6-text">
                                 <i className="fas fa-shopping-cart  h-text"></i>
                                 <p className="h6-text i-link-nav-name">Cart</p>
                             </li>
-                        </a>
+                        </Link>
                     </ul>
                 </div>
             </div>
