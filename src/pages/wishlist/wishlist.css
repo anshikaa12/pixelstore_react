@@ -1,0 +1,18 @@
+.wishlist-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.wishlist-container {
+    padding: 4rem 2rem;
+    gap: 2rem;
+}
+
+.wishlist-trash:hover {
+    font-size: 3rem;
+}
+
+.e-basic-card {
+    width: 28rem;
+}
