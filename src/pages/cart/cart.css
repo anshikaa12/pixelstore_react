@@ -1,0 +1,89 @@
+.cart-management {
+    height: 100vh;
+    padding: 3rem 0;
+}
+
+.cart-main-container {
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-system {
+    box-shadow: 0px 0px 10px 4px rgb(0 0 0 / 5%);
+    padding: 2rem;
+    width: 60%;
+    height: 50rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.price-system {
+    box-shadow: 0px 0px 10px 4px rgb(0 0 0 / 5%);
+    padding: 2rem;
+    width: 40%;
+    height: 30rem;
+}
+
+/***********************/
+
+.basic-card {
+    width: 100%;
+    box-shadow: none;
+    height: 23rem;
+}
+
+.card-img-header {
+    height: 23rem;
+    width: 30%;
+}
+
+.header-text {
+    padding: 2rem;
+
+}
+
+/**********************/
+.cart-qnt {
+    padding: 3rem 0;
+}
+
+.plus,
+.minus,
+.qnt {
+    padding: 1rem;
+}
+
+.qnt {
+    background-color: lightgray;
+}
+
+.btn-primary {
+    padding: 1rem;
+    width: 13rem;
+    min-width: 13rem;
+}
+
+.cross-cart-item {
+    font-size: 2rem;
+    margin-left: auto;
+}
+
+.cross-cart-item:hover {
+    transform: translateY(-2px);
+}
+
+.price {
+    margin-left: auto;
+}
+
+.price-list {
+    padding: 1rem;
+}
+
+.price-cart {
+    padding: 2rem;
+}
+
+.checkout-btn {
+    align-self: center;
+}
