@@ -12,4 +12,5 @@
 @import url('./pages/home/home.css');
 @import url('./pages/product_listing/products.css');
 @import url('./pages/cart/cart.css');
-@import url('./pages/wishlist/wishlist.css')
+@import url('./pages/wishlist/wishlist.css');
+@import url('./pages/product_listing/products.css');

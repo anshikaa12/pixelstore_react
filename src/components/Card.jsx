@@ -2,14 +2,19 @@ import React from 'react';
 import { useCart } from '../context/cartcontext';
 import { useProduct } from "../services/product_api";
 import { useWishlist } from "../context/wishlistcontext";
-
+import { useFilter } from '../context/filtercontext';
+import { sortedData } from "../context/filtercontext"
+import { sorted_price_list } from "../reducer/filterreducer";
 
 function Card() {
     const { state, dispatch } = useCart();
     const { cardData } = useProduct();
     const { currState, wishFunc } = useWishlist();
+    const { filterState, filterFunc } = useFilter();
+    const sortedData = sorted_price_list(filterState.sortBy, cardData);
+    const productsList = filterState.sortBy !== "" ? sortedData : cardData;
     return (
-        cardData && cardData.map(item => {
+        productsList.map(item => {
             return (
                 <div className="e-basic-card" key={item._id}>
                     <img src={item.image} className="e-card-img" alt="Loading" />

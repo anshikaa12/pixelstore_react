@@ -13,7 +13,7 @@ function Cartlist() {
             {state.cartlist.length !== 0 ? state.cartlist.map(item => {
                 return (
                     <div>
-                        <div className="basic-card">
+                        <div className="basic-card" key={item._id}>
                             <div className="card-header">
                                 <img className="card-img-header card-img" src={item.image} />
                                 <div className="header-text flex-col">

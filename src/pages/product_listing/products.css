@@ -1,0 +1,9 @@
+.product-section {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+}
+
+body {
+    background-color: var(--bg-color);
+}

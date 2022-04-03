@@ -7,18 +7,18 @@ function WishlistCard() {
     const { state, dispatch } = useCart();
     return (
         currState.wishlist.length !== 0 ? currState.wishlist.map(item => {
-            return <div class="e-basic-card" key={item._id}>
-                <div class="e-card-dismiss"><i class="wishlist-trash fas fa-trash-alt" onClick={() => wishFunc({ type: "REMOVE_FROM_WISHLIST", payload: item })}></i></div>
-                <img src={item.image} alt="" class="e-card-img" />
-                <div class="card-body">
-                    <h4 class="card-title">{item.name}</h4>
-                    <span class="e-card-subtext">{item.subtext}
+            return <div className="e-basic-card" key={item._id}>
+                <div className="e-card-dismiss"><i className="wishlist-trash fas fa-trash-alt" onClick={() => wishFunc({ type: "REMOVE_FROM_WISHLIST", payload: item })}></i></div>
+                <img src={item.image} alt="" className="e-card-img" />
+                <div className="card-body">
+                    <h4 className="card-title">{item.name}</h4>
+                    <span className="e-card-subtext">{item.subtext}
                         <br />
-                        <span class="prime-color-text h4-text">₹{item.price}</span> <del>₹{item.originalprice}</del> <span
-                            class="small-grey"> Save ₹{item.discount}</span>
+                        <span className="prime-color-text h4-text">₹{item.price}</span> <del>₹{item.originalprice}</del> <span
+                            className="small-grey"> Save ₹{item.discount}</span>
                     </span>
-                    <div class="card-footer">
-                        <button class="mid-btn btn-primary" onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}>Add to cart</button>
+                    <div className="card-footer">
+                        <button className="mid-btn btn-primary" onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}>Add to cart</button>
                     </div>
                 </div>
             </div>
