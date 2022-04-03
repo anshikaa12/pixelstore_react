@@ -6,8 +6,8 @@ import { Nav, Footer } from "../../components";
 function Home() {
     return (
         <div>
+            <Nav />
             <section className="hero-section flex-col">
-                <Nav />
                 <div className="hero-content">
                     <div className="hero-text flex-col">
                         <h1 className="main-h1-xl prime-color-text">Powered</h1>

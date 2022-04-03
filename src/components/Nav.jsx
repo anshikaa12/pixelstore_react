@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
     return (
-        <div>
+        <nav>
             <div className="nav">
                 <div className="first-nav">
                     <img src="https://res.cloudinary.com/de5it79dw/image/upload/v1648491301/Pixelion_2_-PhotoRoom_q7mfmo.png" alt="" />
@@ -39,7 +39,7 @@ function Nav() {
                     </ul>
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 
