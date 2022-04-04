@@ -1,8 +1,10 @@
 import React from 'react'
 import { useFilter } from "../../context/filtercontext"
+import { useCategory } from '../../services/category_api'
 
 function Filter() {
     const { filterState, filterFunc } = useFilter();
+    const { category } = useCategory();
 
     return (
         <div className="product-sidebar flex-col">
@@ -33,30 +35,13 @@ function Filter() {
             {/* <!------------category-filter-------------> */}
             <div className="category-filter">
                 <p className="h4-text wt-md side-filter">CATEGORIES</p>
-                <label className="check-list">Phones
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                </label>
-                <label className="check-list">Speakers
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                </label>
-                <label className="check-list">Earphones
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                </label>
-                <label className="check-list">Laptops
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                </label>
-                <label className="check-list">Tablets
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                </label>
-                <label className="check-list">Smart Watches
-                    <input type="checkbox" />
-                    <span className="checkmark"></span>
-                </label>
+                {category.map(item => {
+                    return <label className="check-list" key={item._id}>{item.categoryName}
+                        <input type="checkbox" checked={filterState.categories && filterState.categories.includes(item.categoryName)} onChange={() =>
+                            filterFunc({ type: "SORT_CATEGORY", payload: item.categoryName })} />
+                        <span className="checkmark"></span>
+                    </label>
+                })}
             </div>
             <hr className="side-hr" />
             {/* <!------------brand-filter-------------> */}

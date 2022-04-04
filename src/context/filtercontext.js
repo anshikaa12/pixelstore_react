@@ -6,7 +6,8 @@ const useFilter = ()=>useContext(filter);
 const FilterProvider=({children})=>{
 
     const [filterState,filterFunc]=useReducer(filterReducer,{
-        sortBy:""
+        sortBy:"",
+        categories:[],
     })
    
 

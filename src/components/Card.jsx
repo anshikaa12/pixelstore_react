@@ -5,14 +5,19 @@ import { useWishlist } from "../context/wishlistcontext";
 import { useFilter } from '../context/filtercontext';
 import { sortedData } from "../context/filtercontext"
 import { sorted_price_list } from "../reducer/filterreducer";
+import { sorted_category_list } from "../reducer/filterreducer";
+import { useCategory } from '../services/category_api';
+
 
 function Card() {
     const { state, dispatch } = useCart();
     const { cardData } = useProduct();
+    const { category } = useCategory();
     const { currState, wishFunc } = useWishlist();
     const { filterState, filterFunc } = useFilter();
-    const sortedData = sorted_price_list(filterState.sortBy, cardData);
-    const productsList = filterState.sortBy !== "" ? sortedData : cardData;
+    const sortedData = filterState.sortBy !== "" ? sorted_price_list(filterState.sortBy, cardData) : cardData;
+    const sorted_category_data = sorted_category_list(filterState.categories, sortedData);
+    const productsList = filterState.categories.length !== 0 ? sorted_category_data : sortedData;
     return (
         productsList.map(item => {
             return (
