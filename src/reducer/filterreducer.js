@@ -17,7 +17,7 @@ function filterReducer(state, action) {
   }
 }
 
-function sorted_price_list(sortBy, cardData) {
+function sortedPriceList(sortBy, cardData) {
   if (sortBy == "HIGH_TO_LOW") {
     return [...cardData].sort((a, b) => b["price"] - a["price"]);
   }
@@ -27,11 +27,11 @@ function sorted_price_list(sortBy, cardData) {
   return cardData;
 }
 
-function sorted_category_list(categories, cardData) {
+function sortedCategoryList(categories, cardData) {
   let updatedList = [...cardData].filter((item) =>
     categories.includes(item.category)
   );
   return updatedList;
 }
 
-export { filterReducer, sorted_price_list, sorted_category_list };
+export { filterReducer, sortedPriceList, sortedCategoryList };

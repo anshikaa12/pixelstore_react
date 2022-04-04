@@ -4,21 +4,21 @@ import { useProduct } from "../services/product_api";
 import { useWishlist } from "../context/wishlistcontext";
 import { useFilter } from "../context/filtercontext";
 import { sortedData } from "../context/filtercontext";
-import { sorted_price_list } from "../reducer/filterreducer";
-import { sorted_category_list } from "../reducer/filterreducer";
+import { sortedPriceList } from "../reducer/filterreducer";
+import { sortedCategoryList } from "../reducer/filterreducer";
 import { useCategory } from "../services/category_api";
 
 function Card() {
-  const { state, dispatch } = useCart();
+  const { cartState, cartFunc } = useCart();
   const { cardData } = useProduct();
   const { category } = useCategory();
   const { currState, wishFunc } = useWishlist();
   const { filterState, filterFunc } = useFilter();
   const sortedData =
     filterState.sortBy !== ""
-      ? sorted_price_list(filterState.sortBy, cardData)
+      ? sortedPriceList(filterState.sortBy, cardData)
       : cardData;
-  const sorted_category_data = sorted_category_list(
+  const sorted_category_data = sortedCategoryList(
     filterState.categories,
     sortedData
   );
@@ -41,7 +41,7 @@ function Card() {
           <div className="card-footer">
             <button
               className="mid-btn btn-primary"
-              onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}
+              onClick={() => cartFunc({ type: "ADD_TO_CART", payload: item })}
             >
               Add to cart
             </button>

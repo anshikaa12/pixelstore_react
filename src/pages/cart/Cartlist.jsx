@@ -3,12 +3,12 @@ import { useCart } from "../../context/cartcontext";
 import { useWishlist } from "../../context/wishlistcontext";
 
 function Cartlist() {
-  const { state, dispatch } = useCart();
+  const { cartState, cartFunc } = useCart();
   const { currState, wishFunc } = useWishlist();
   return (
     <div className="product-system">
-      {state.cartlist.length !== 0 ? (
-        state.cartlist.map((item) => {
+      {cartState.cartlist.length !== 0 ? (
+        cartState.cartlist.map((item) => {
           return (
             <div>
               <div className="basic-card" key={item._id}>
@@ -22,7 +22,7 @@ function Cartlist() {
                         <span
                           className="prime-color-text plus"
                           onClick={() =>
-                            dispatch({ type: "INCREMENT_QTY", payload: item })
+                            cartFunc({ type: "INCREMENT_QTY", payload: item })
                           }
                         >
                           +
@@ -31,7 +31,7 @@ function Cartlist() {
                         <span
                           className="prime-color-text minus"
                           onClick={() =>
-                            dispatch({ type: "DECREMENT_QTY", payload: item })
+                            cartFunc({ type: "DECREMENT_QTY", payload: item })
                           }
                         >
                           -
@@ -50,7 +50,7 @@ function Cartlist() {
                   <i
                     className="far fa-times-circle cross-cart-item"
                     onClick={() =>
-                      dispatch({ type: "REMOVE_FROM_CART", payload: item })
+                      cartFunc({ type: "REMOVE_FROM_CART", payload: item })
                     }
                   ></i>
                 </div>

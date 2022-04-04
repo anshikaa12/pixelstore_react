@@ -4,7 +4,7 @@ import { useCart } from "../context/cartcontext";
 
 function WishlistCard() {
   const { currState, wishFunc } = useWishlist();
-  const { state, dispatch } = useCart();
+  const { cartState, cartFunc } = useCart();
   return currState.wishlist.length !== 0 ? (
     currState.wishlist.map((item) => {
       return (
@@ -32,7 +32,7 @@ function WishlistCard() {
             <div className="card-footer">
               <button
                 className="mid-btn btn-primary"
-                onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}
+                onClick={() => cartFunc({ type: "ADD_TO_CART", payload: item })}
               >
                 Add to cart
               </button>

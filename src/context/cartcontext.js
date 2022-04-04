@@ -4,13 +4,15 @@ import { cartReducer } from "../reducer/cartreducer";
 const cart = createContext();
 const useCart = () => useContext(cart);
 const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, {
+  const [cartState, cartFunc] = useReducer(cartReducer, {
     price: 0,
     discount: 0,
     total: 0,
     cartlist: [],
   });
 
-  return <cart.Provider value={{ state, dispatch }}>{children}</cart.Provider>;
+  return (
+    <cart.Provider value={{ cartState, cartFunc }}>{children}</cart.Provider>
+  );
 };
 export { CartProvider, useCart };
