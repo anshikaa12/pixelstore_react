@@ -1,6 +1,7 @@
 import React from "react";
 import { useFilter } from "../../context/filtercontext";
 import { useCategory } from "../../services/category_api";
+import { brandList } from "../../services/brand_list";
 
 function Filter() {
   const { filterState, filterFunc } = useFilter();
@@ -10,21 +11,22 @@ function Filter() {
     <div className="product-sidebar flex-col">
       <div className="side-heads flex-row">
         <p className="h3-text wt-bold">Filters</p>
-        <p className="doc-p">Clear All</p>
+        <p className="foot-p" onClick={() => filterFunc({ type: "CLEAR_ALL" })}>
+          Clear All
+        </p>
       </div>
       <hr className="side-hr" />
       {/* <!------------sort-filter-------------> */}
       <div className="sort-filter">
         <p className="h4-text wt-md side-filter">SORT</p>
-
         <label className="radio-list">
           Higher to Lower Price
           <input
             type="radio"
-            checked={filterState.sortBy && filterState.sortBy === "HIGH_TO_LOW"}
             onChange={() =>
               filterFunc({ type: "SORT_PRICE", payload: "HIGH_TO_LOW" })
             }
+            checked={filterState?.sortBy === "HIGH_TO_LOW"}
             name="radio"
           />
           <span className="radio"></span>
@@ -37,7 +39,7 @@ function Filter() {
             onChange={() =>
               filterFunc({ type: "SORT_PRICE", payload: "LOW_TO_HIGH" })
             }
-            checked={filterState.sortBy && filterState.sortBy === "LOW_TO_HIGH"}
+            checked={filterState?.sortBy === "LOW_TO_HIGH"}
           />
           <span className="radio"></span>
         </label>
@@ -53,8 +55,8 @@ function Filter() {
               <input
                 type="checkbox"
                 checked={
-                  filterState.categories &&
-                  filterState.categories.includes(item.categoryName)
+                  filterState?.categories &&
+                  filterState?.categories.includes(item.categoryName)
                 }
                 onChange={() =>
                   filterFunc({
@@ -72,36 +74,23 @@ function Filter() {
       {/* <!------------brand-filter-------------> */}
       <div className="brand-filter">
         <p className="h4-text wt-md side-filter">BRANDS</p>
-        <label className="check-list">
-          Apple
-          <input type="checkbox" />
-          <span className="checkmark"></span>
-        </label>
-        <label className="check-list">
-          Boat
-          <input type="checkbox" />
-          <span className="checkmark"></span>
-        </label>
-        <label className="check-list">
-          Samsung
-          <input type="checkbox" />
-          <span className="checkmark"></span>
-        </label>
-        <label className="check-list">
-          One Plus
-          <input type="checkbox" />
-          <span className="checkmark"></span>
-        </label>
-        <label className="check-list">
-          HP
-          <input type="checkbox" />
-          <span className="checkmark"></span>
-        </label>
-        <label className="check-list">
-          Fasttrack
-          <input type="checkbox" />
-          <span className="checkmark"></span>
-        </label>
+        {brandList.map((item) => {
+          return (
+            <label className="check-list">
+              {item}
+              <input
+                type="checkbox"
+                checked={
+                  filterState?.brand && filterState?.brand.includes(item)
+                }
+                onChange={() =>
+                  filterFunc({ type: "SORT_BRAND", payload: item })
+                }
+              />
+              <span className="checkmark"></span>
+            </label>
+          );
+        })}
       </div>
       <hr className="side-hr" />
       {/* <!------------Stock-filter-------------> */}
@@ -109,7 +98,13 @@ function Filter() {
         <p className="h4-text wt-md side-filter">STOCK</p>
         <label className="check-list">
           Include out of stock
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={filterState.stock}
+            onChange={() =>
+              filterFunc({ type: "SORT_STOCK", payload: filterState.stock })
+            }
+          />
           <span className="checkmark"></span>
         </label>
       </div>
@@ -117,17 +112,24 @@ function Filter() {
       {/* <!------------Rating-filter-------------> */}
       <div className="rating-filter">
         <p className="h4-text wt-md side-filter">RATING</p>
-        <label htmlFor="volume" className="h4-text">
-          Rating
-        </label>
-        <input
-          type="range"
-          id="volume"
-          name="volume"
-          min="0"
-          max="11"
-          className="h3-text st-slider"
-        />
+        <div>
+          <div style={{ display: "flex", gap: "1.6rem" }}>
+            <p class="foot-p">1</p>
+            <p class="foot-p">2</p>
+            <p class="foot-p">3</p>
+            <p class="foot-p">4</p>
+            <p class="foot-p">5</p>
+          </div>
+          <input
+            value={filterState.rate || 1}
+            type="range"
+            min="1"
+            max="5"
+            onChange={(e) =>
+              filterFunc({ type: "SORT_RATING", payload: e.target.value })
+            }
+          />
+        </div>
       </div>
     </div>
   );

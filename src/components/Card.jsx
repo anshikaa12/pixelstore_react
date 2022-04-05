@@ -4,8 +4,13 @@ import { useProduct } from "../services/product_api";
 import { useWishlist } from "../context/wishlistcontext";
 import { useFilter } from "../context/filtercontext";
 import { sortedData } from "../context/filtercontext";
-import { sortedPriceList } from "../reducer/filterreducer";
-import { sortedCategoryList } from "../reducer/filterreducer";
+import {
+  sortedPriceList,
+  sortedCategoryList,
+  sortedBrandsList,
+  sortedStockList,
+  sortedRatingList,
+} from "../reducer/filterreducer";
 import { useCategory } from "../services/category_api";
 
 function Card() {
@@ -14,16 +19,27 @@ function Card() {
   const { category } = useCategory();
   const { currState, wishFunc } = useWishlist();
   const { filterState, filterFunc } = useFilter();
+  console.log(filterState);
   const sortedData =
-    filterState.sortBy !== ""
+    filterState?.sortBy !== ""
       ? sortedPriceList(filterState.sortBy, cardData)
       : cardData;
-  const sorted_category_data = sortedCategoryList(
-    filterState.categories,
-    sortedData
-  );
-  const productsList =
-    filterState.categories.length !== 0 ? sorted_category_data : sortedData;
+
+  const sortedCategoryData =
+    filterState.categories.length !== 0
+      ? sortedCategoryList(filterState.categories, sortedData)
+      : sortedData;
+
+  const sortedBrandData =
+    filterState.brand.length !== 0
+      ? sortedBrandsList(filterState.brand, sortedCategoryData)
+      : sortedCategoryData;
+  const sortedStockData = sortedStockList(filterState.stock, sortedBrandData);
+
+  const sortedRatingData = sortedRatingList(filterState.rate, sortedStockData);
+
+  const productsList = filterState.rate ? sortedRatingData : sortedStockData;
+
   return productsList.map((item) => {
     return (
       <div className="e-basic-card" key={item._id}>
