@@ -3,7 +3,7 @@ import { useCart } from "../context/cartcontext";
 import { useProduct } from "../services/product_api";
 import { useWishlist } from "../context/wishlistcontext";
 import { useFilter } from "../context/filtercontext";
-import { sortedData } from "../context/filtercontext";
+
 import {
   sortedPriceList,
   sortedCategoryList,
@@ -11,17 +11,15 @@ import {
   sortedStockList,
   sortedRatingList,
 } from "../reducer/filterreducer";
-import { useCategory } from "../services/category_api";
 
 function Card() {
-  const { cartState, cartFunc } = useCart();
+  const { cartFunc } = useCart();
   const { cardData } = useProduct();
-  const { category } = useCategory();
-  const { currState, wishFunc } = useWishlist();
-  const { filterState, filterFunc } = useFilter();
+  const { wishFunc } = useWishlist();
+  const { filterState } = useFilter();
   console.log(filterState);
   const sortedData =
-    filterState?.sortBy !== ""
+    filterState.sortBy !== ""
       ? sortedPriceList(filterState.sortBy, cardData)
       : cardData;
 

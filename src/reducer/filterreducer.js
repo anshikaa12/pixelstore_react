@@ -1,5 +1,3 @@
-import { useProduct } from "../services/product_api";
-
 function filterReducer(state, action) {
   switch (action.type) {
     case "SORT_PRICE":
@@ -40,6 +38,8 @@ function filterReducer(state, action) {
         stock: false,
         rate: null,
       };
+    default:
+      return state;
   }
 }
 
