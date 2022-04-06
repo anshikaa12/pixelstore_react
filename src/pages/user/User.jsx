@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function User() {
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = `register`;
+    let path = `/register`;
     navigate(path);
   };
   return (

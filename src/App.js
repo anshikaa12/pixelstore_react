@@ -12,7 +12,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/user" element={<User />} />
-        <Route path="/user/register" element={<Register />} />
+        <Route path="register" element={<Register />} />
       </Routes>
     </div>
   );

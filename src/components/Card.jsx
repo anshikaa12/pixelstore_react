@@ -11,9 +11,16 @@ import {
   sortedStockList,
   sortedRatingList,
 } from "../reducer/filterreducer";
+import { useNavigate } from "react-router-dom";
 
 function Card() {
-  const { cartFunc } = useCart();
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `/cart`;
+    navigate(path);
+  };
+
+  const { cartState, cartFunc } = useCart();
   const { cardData } = useProduct();
   const { wishFunc } = useWishlist();
   const { filterState } = useFilter();
@@ -36,7 +43,12 @@ function Card() {
   const sortedRatingData = sortedRatingList(filterState.rate, sortedStockData);
 
   const productsList = filterState.rate ? sortedRatingData : sortedStockData;
-
+  function checkItem(id) {
+    if (cartState.cartlist.find((item) => item._id === id)) {
+      return true;
+    }
+    return false;
+  }
   return productsList.map((item) => {
     return item.inStock ? (
       <div className="e-basic-card" key={item._id}>
@@ -53,12 +65,18 @@ function Card() {
           </span>
 
           <div className="card-footer">
-            <button
-              className="mid-btn btn-primary"
-              onClick={() => cartFunc({ type: "ADD_TO_CART", payload: item })}
-            >
-              Add to cart
-            </button>
+            {checkItem(item._id) ? (
+              <button className="mid-btn btn-primary" onClick={routeChange}>
+                Go to cart
+              </button>
+            ) : (
+              <button
+                className="mid-btn btn-primary"
+                onClick={() => cartFunc({ type: "ADD_TO_CART", payload: item })}
+              >
+                Add to cart
+              </button>
+            )}
             <div className="connect-part">
               <i
                 className="far fa-heart card-icon"

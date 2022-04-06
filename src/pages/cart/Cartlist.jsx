@@ -40,9 +40,10 @@ function Cartlist() {
                     </div>
                     <button
                       className="btn-primary"
-                      onClick={() =>
-                        wishFunc({ type: "ADD_TO_WISHLIST", payload: item })
-                      }
+                      onClick={() => {
+                        wishFunc({ type: "ADD_TO_WISHLIST", payload: item });
+                        cartFunc({ type: "REMOVE_FROM_CART", payload: item });
+                      }}
                     >
                       Move to Wishlist
                     </button>
