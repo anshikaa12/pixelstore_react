@@ -99,20 +99,17 @@
 /****************************/
 .featured-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     padding: 5rem 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .brand {
 
     padding: .5rem;
-    display: flex;
-    flex-direction: column;
-    width: 25rem;
-    min-width: 25rem;
-    justify-content: center;
-    align-items: center;
-
+    width: 20rem;
+    min-width: 20rem;
 }
 
 .brand:hover {

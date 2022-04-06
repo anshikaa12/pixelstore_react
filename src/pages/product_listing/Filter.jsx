@@ -77,14 +77,14 @@ function Filter() {
         {brandList.map((item) => {
           return (
             <label className="check-list">
-              {item}
+              {item.name}
               <input
                 type="checkbox"
                 checked={
-                  filterState?.brand && filterState?.brand.includes(item)
+                  filterState?.brand && filterState?.brand.includes(item.name)
                 }
                 onChange={() =>
-                  filterFunc({ type: "SORT_BRAND", payload: item })
+                  filterFunc({ type: "SORT_BRAND", payload: item.name })
                 }
               />
               <span className="checkmark"></span>
