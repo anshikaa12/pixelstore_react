@@ -17,7 +17,6 @@ function Card() {
   const { cardData } = useProduct();
   const { wishFunc } = useWishlist();
   const { filterState } = useFilter();
-  console.log(filterState);
   const sortedData =
     filterState.sortBy !== ""
       ? sortedPriceList(filterState.sortBy, cardData)
@@ -39,8 +38,9 @@ function Card() {
   const productsList = filterState.rate ? sortedRatingData : sortedStockData;
 
   return productsList.map((item) => {
-    return (
+    return item.inStock ? (
       <div className="e-basic-card" key={item._id}>
+        <div className="e-card-badge">{item.rating}⭐</div>
         <img src={item.image} className="e-card-img" alt="Loading" />
         <div className="card-body">
           <h4 className="card-title">{item.name}</h4>
@@ -66,6 +66,31 @@ function Card() {
                   wishFunc({ type: "ADD_TO_WISHLIST", payload: item })
                 }
               ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div className="e-basic-card" key={item._id}>
+        <div className="overlay-card">
+          <div>OUT OF STOCK</div>
+        </div>
+        <div className="e-card-badge">{item.rating}⭐</div>
+        <img src={item.image} className="e-card-img" alt="Loading" />
+        <div className="card-body">
+          <h4 className="card-title">{item.name}</h4>
+          <span className="e-card-subtext">
+            {item.subtext}
+            <br />
+            <span className="prime-color-text h4-text">₹{item.price}</span>{" "}
+            <del>₹{item.originalprice}</del>{" "}
+            <span className="small-grey"> Save ₹{item.discount}</span>
+          </span>
+
+          <div className="card-footer">
+            <button className="mid-btn btn-primary">Add to cart</button>
+            <div className="connect-part">
+              <i className="far fa-heart card-icon"></i>
             </div>
           </div>
         </div>

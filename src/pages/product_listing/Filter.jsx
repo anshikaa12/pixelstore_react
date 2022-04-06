@@ -11,7 +11,10 @@ function Filter() {
     <div className="product-sidebar flex-col">
       <div className="side-heads flex-row">
         <p className="h3-text wt-bold">Filters</p>
-        <p className="foot-p" onClick={() => filterFunc({ type: "CLEAR_ALL" })}>
+        <p
+          className="foot-p clear-all-btn"
+          onClick={() => filterFunc({ type: "CLEAR_ALL" })}
+        >
           Clear All
         </p>
       </div>
@@ -76,7 +79,7 @@ function Filter() {
         <p className="h4-text wt-md side-filter">BRANDS</p>
         {brandList.map((item) => {
           return (
-            <label className="check-list">
+            <label className="check-list" key={item.name}>
               {item.name}
               <input
                 type="checkbox"
@@ -114,11 +117,11 @@ function Filter() {
         <p className="h4-text wt-md side-filter">RATING</p>
         <div>
           <div style={{ display: "flex", gap: "1.6rem" }}>
-            <p class="foot-p">1</p>
-            <p class="foot-p">2</p>
-            <p class="foot-p">3</p>
-            <p class="foot-p">4</p>
-            <p class="foot-p">5</p>
+            <p className="foot-p">1</p>
+            <p className="foot-p">2</p>
+            <p className="foot-p">3</p>
+            <p className="foot-p">4</p>
+            <p className="foot-p">5</p>
           </div>
           <input
             value={filterState.rate || 1}

@@ -30,15 +30,12 @@ function Nav() {
             placeholder="Search"
           />
           <ul className="nav-connect nav-links">
-            <a
-              href="./css/pages/login/login.html"
-              className="nav-connect-a li-link-a"
-            >
+            <Link to="/user" className="nav-connect-a li-link-a">
               <li className="connect-link h6-text flex-col-center">
                 <i className="fas fa-user  h5-text"></i>
                 <p className="h6-text i-link-nav-name">User</p>
               </li>
-            </a>
+            </Link>
             <Link to="/wishlist" className="nav-connect-a li-link-a ">
               <li className="connect-link  flex-col-center ">
                 <i className="fas fa-heart h5-text"></i>

@@ -8,9 +8,10 @@
 @import url('./css/layout/product-footer.css');
 @import url('./css/layout/product-main.css');
 @import url('./css/layout/product-nav.css');
-@import url('./css/layout/product-sidebar.css');
 @import url('./pages/home/home.css');
 @import url('./pages/product_listing/products.css');
 @import url('./pages/cart/cart.css');
 @import url('./pages/wishlist/wishlist.css');
 @import url('./pages/product_listing/products.css');
+@import url('./pages/user/user.css');
+@import url('./pages/product_listing/filter.css')
