@@ -11,7 +11,10 @@ function Filter() {
     <div className="product-sidebar flex-col">
       <div className="side-heads flex-row">
         <p className="h3-text wt-bold">Filters</p>
-        <p className="foot-p" onClick={() => filterFunc({ type: "CLEAR_ALL" })}>
+        <p
+          className="foot-p clear-all-btn"
+          onClick={() => filterFunc({ type: "CLEAR_ALL" })}
+        >
           Clear All
         </p>
       </div>
