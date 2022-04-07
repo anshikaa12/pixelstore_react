@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 function Login() {
+  const [passwordVisibility, setPasswordVisibility] = useState(false);
+  function passwordHandler() {
+    setPasswordVisibility(!passwordVisibility);
+  }
   return (
     <div>
       <div id="login-input">
@@ -11,11 +17,14 @@ function Login() {
           className="input-md all-border-input"
         />
         <h4 className="main-h4">Password</h4>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          className="input-md all-border-input"
-        />
+        <div className="password-div">
+          <input
+            type={passwordVisibility ? "text" : "password"}
+            placeholder="Enter Password"
+            className="input-md all-border-input"
+          />
+          <i className="fas fa-eye-slash" onClick={passwordHandler}></i>
+        </div>
       </div>
       <div className="login-btn flex-col-center">
         <button className="btn-primary btn">LOGIN</button>
@@ -23,7 +32,7 @@ function Login() {
           Forgot Password?
         </Link>
         <Link
-          to="/user/register"
+          to="/register"
           id="register-link"
           className="prime-color-text wt-md h5-text"
         >

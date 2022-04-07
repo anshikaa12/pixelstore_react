@@ -27,38 +27,6 @@ function User() {
           </div>
           <div className="login-body flex-col">
             <Login />
-            <div id="register-input" className="hide">
-              <h4 className="main-h4">First Name</h4>
-              <input
-                type="text"
-                placeholder="Enter First name"
-                className="input-md all-border-input"
-              />
-              <h4 className="main-h4">Last Name</h4>
-              <input
-                type="text"
-                placeholder="Enter Last name"
-                className="input-md all-border-input"
-              />
-              <h4 className="main-h4">Email</h4>
-              <input
-                type="text"
-                placeholder="Enter email"
-                className="input-md all-border-input"
-              />
-              <h4 className="main-h4">Password</h4>
-              <input
-                type="password"
-                placeholder="Enter Password"
-                className="input-md all-border-input"
-              />
-              <h4 className="main-h4">Re-Enter Password</h4>
-              <input
-                type="password"
-                placeholder="Re-Enter Password"
-                className="input-md all-border-input"
-              />
-            </div>
           </div>
         </form>
       </div>
