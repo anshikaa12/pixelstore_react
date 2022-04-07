@@ -9,30 +9,22 @@ function addToCartList(state, action) {
     image,
     quantity,
   } = action.payload;
-  let isProductPresent = false;
-  let updatedList = state.cartlist.map((item) => {
-    if (item._id === action.payload._id) {
-      isProductPresent = true;
-      return { ...item, quantity: item.quantity - 1, qty: item.qty + 1 };
-    }
-    return item;
-  });
-  if (!isProductPresent) {
-    updatedList = [
-      ...state.cartlist,
-      {
-        name,
-        _id,
-        subtext,
-        price,
-        originalprice,
-        discount,
-        image,
-        quantity: quantity - 1,
-        qty: 1,
-      },
-    ];
-  }
+
+  let updatedList = [
+    ...state.cartlist,
+    {
+      name,
+      _id,
+      subtext,
+      price,
+      originalprice,
+      discount,
+      image,
+      quantity: quantity - 1,
+      qty: 1,
+    },
+  ];
+
   return updatedList;
 }
 
