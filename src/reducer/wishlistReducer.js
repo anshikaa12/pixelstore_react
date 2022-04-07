@@ -5,6 +5,8 @@ const wishlistReducer = (currState, action) => {
       return { ...currState, wishlist: addToWishlist(currState, action) };
     case "REMOVE_FROM_WISHLIST":
       return { ...currState, wishlist: removeFromWishlist(currState, action) };
+    default:
+      return currState;
   }
 };
 export { wishlistReducer };

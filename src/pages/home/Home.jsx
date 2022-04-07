@@ -21,6 +21,7 @@ function Home() {
           <div className="hero-img-container flex-row">
             <img
               className="hero-img"
+              alt="home"
               src="https://res.cloudinary.com/de5it79dw/image/upload/v1648492828/img_i49plp.png"
             />
           </div>

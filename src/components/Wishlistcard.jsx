@@ -4,7 +4,7 @@ import { useCart } from "../context/cartcontext";
 
 function WishlistCard() {
   const { currState, wishFunc } = useWishlist();
-  const { cartState, cartFunc } = useCart();
+  const { cartFunc } = useCart();
   return currState.wishlist.length !== 0 ? (
     currState.wishlist.map((item) => {
       return (

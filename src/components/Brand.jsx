@@ -4,7 +4,7 @@ function Brand() {
   return brandList.map((item) => {
     return (
       <div className="brand">
-        <img src={item.image} className="promo-card-img" />
+        <img src={item.image} alt="brandItem" className="promo-card-img" />
       </div>
     );
   });

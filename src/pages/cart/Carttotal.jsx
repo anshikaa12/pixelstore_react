@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../../context/cartcontext";
 
 function Carttotal() {
-  const { cartState, dispatch } = useCart();
+  const { cartState } = useCart();
   return (
     <div className="price-system flex-col">
       <h2 className="h2-text text-align-center">PRICE DETAILS</h2>

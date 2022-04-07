@@ -4,7 +4,7 @@ import { useWishlist } from "../../context/wishlistcontext";
 
 function Cartlist() {
   const { cartState, cartFunc } = useCart();
-  const { currState, wishFunc } = useWishlist();
+  const { wishFunc } = useWishlist();
   return (
     <div className="product-system">
       {cartState.cartlist.length !== 0 ? (
@@ -13,7 +13,11 @@ function Cartlist() {
             <div>
               <div className="basic-card" key={item._id}>
                 <div className="card-header">
-                  <img className="card-img-header card-img" src={item.image} />
+                  <img
+                    className="card-img-header card-img"
+                    alt="card"
+                    src={item.image}
+                  />
                   <div className="header-text flex-col">
                     <h3 className="card-title h3-text">{item.name}</h3>
                     <h4 className="h4-text prime-color-text">₹{item.price}</h4>

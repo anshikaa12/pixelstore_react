@@ -1,4 +1,3 @@
-import react from "react";
 import { createContext, useContext, useReducer } from "react";
 import { wishlistReducer } from "../reducer/wishlistReducer";
 

@@ -19,9 +19,9 @@ function Login() {
       </div>
       <div className="login-btn flex-col-center">
         <button className="btn-primary btn">LOGIN</button>
-        <a href="" id="login-link" className="prime-color-text wt-md h5-text">
+        <Link to="/" id="login-link" className="prime-color-text wt-md h5-text">
           Forgot Password?
-        </a>
+        </Link>
         <Link
           to="/user/register"
           id="register-link"
