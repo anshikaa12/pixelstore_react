@@ -24,21 +24,29 @@ function Cartlist() {
                     <div className="cart-qnt">
                       <h3 className="h3-text">
                         <span
+                          className="prime-color-text minus"
+                          onClick={() => {
+                            item.qty === 1
+                              ? cartFunc({
+                                  type: "REMOVE_FROM_CART",
+                                  payload: item,
+                                })
+                              : cartFunc({
+                                  type: "DECREMENT_QTY",
+                                  payload: item,
+                                });
+                          }}
+                        >
+                          -
+                        </span>
+                        <span className="qnt">{item.qty}</span>
+                        <span
                           className="prime-color-text plus"
                           onClick={() =>
                             cartFunc({ type: "INCREMENT_QTY", payload: item })
                           }
                         >
                           +
-                        </span>
-                        <span className="qnt">{item.qty}</span>
-                        <span
-                          className="prime-color-text minus"
-                          onClick={() =>
-                            cartFunc({ type: "DECREMENT_QTY", payload: item })
-                          }
-                        >
-                          -
                         </span>
                       </h3>
                     </div>

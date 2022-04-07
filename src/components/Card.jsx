@@ -52,7 +52,10 @@ function Card() {
   return productsList.map((item) => {
     return item.inStock ? (
       <div className="e-basic-card" key={item._id}>
-        <div className="e-card-badge">{item.rating}⭐</div>
+        <div className="e-card-badge">
+          {item.rating}
+          <i class="fas fa-star"></i>
+        </div>
         <img src={item.image} className="e-card-img" alt="Loading" />
         <div className="card-body">
           <h4 className="card-title">{item.name}</h4>
@@ -93,7 +96,10 @@ function Card() {
         <div className="overlay-card">
           <div>OUT OF STOCK</div>
         </div>
-        <div className="e-card-badge">{item.rating}⭐</div>
+        <div className="e-card-badge">
+          {item.rating}
+          <i class="fas fa-star"></i>
+        </div>
         <img src={item.image} className="e-card-img" alt="Loading" />
         <div className="card-body">
           <h4 className="card-title">{item.name}</h4>

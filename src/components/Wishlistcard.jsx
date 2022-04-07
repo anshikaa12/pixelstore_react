@@ -17,7 +17,7 @@ function WishlistCard() {
               }
             ></i>
           </div>
-          <img src={item.image} alt="" className="e-card-img" />
+          <img src={item.image} alt="card" className="e-card-img" />
           <div className="card-body">
             <h4 className="card-title">{item.name}</h4>
             <span className="e-card-subtext">

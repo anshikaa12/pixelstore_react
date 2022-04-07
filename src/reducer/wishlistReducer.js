@@ -9,4 +9,5 @@ const wishlistReducer = (currState, action) => {
       return currState;
   }
 };
+
 export { wishlistReducer };
