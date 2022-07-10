@@ -1,4 +1,3 @@
-import React from "react";
 import { useCart } from "../context/cartcontext";
 import { useProduct } from "../services/product_api";
 import { useWishlist } from "../context/wishlistcontext";
@@ -49,6 +48,7 @@ function Card() {
     }
     return false;
   }
+
   return productsList.map((item) => {
     return item.inStock ? (
       <div className="e-basic-card" key={item._id}>
